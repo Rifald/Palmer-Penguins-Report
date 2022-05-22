@@ -4,13 +4,6 @@ author: "Rifaldi Iqbal"
 date: '2022-05-22'
 output: github_document
 ---
-```{r, echo = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>",
-  fig.path = "README-"
-)
-```
 
 ## Setting Up Environment
 Notes : setting up my R environment by loading the 'tidyverse' and 'palmerpenguins' packages.
