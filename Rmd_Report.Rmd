@@ -1,0 +1,52 @@
+---
+title: "Palmer Penguins Report"
+author: "Rifaldi Iqbal"
+date: '2022-05-22'
+output: github_document
+---
+
+## Setting Up Environment
+Notes : setting up my R environment by loading the 'tidyverse' and 'palmerpenguins' packages.
+
+```{r loading packages}
+library(tidyverse)
+library(palmerpenguins)
+```
+
+## Visualization
+Here we will go through a series of visualization
+
+### Flipper and body mass in purple
+Here we plot flipper length against body mass
+
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+ggplot(data = penguins) + 
+  geom_point(mapping = aes(x = flipper_length_mm, y = body_mass_g), color = 'blue') +
+  geom_smooth(mapping = aes(x = flipper_length_mm, y = body_mass_g)) +
+  xlab("Flipper Length (mm)") +
+  ylab("Body Mass (g)")
+```
+
+### Flipper and body mass by species
+Here, we plot flipper length against body mass and look at the breakdown by species
+
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+ggplot(data=penguins,aes(x=flipper_length_mm,y=body_mass_g))+
+geom_point(aes(shape=species,color=species)) +
+  geom_smooth(mapping = aes(x = flipper_length_mm, y = body_mass_g)) +
+  xlab("Flipper Length (mm)") +
+  ylab("Body Mass (g)")
+```
+
+### Flipper and body mass by species and sex
+Here, we plot flipper length against body mass and look at the breakdown by species and sex
+
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+ggplot(data=penguins,aes(x=flipper_length_mm,y=body_mass_g))+
+geom_point(aes(color=species,
+               shape=species)) +
+xlab("Flipper Length (mm)") +
+ylab("Body Mass (g)") + 
+facet_wrap(~sex)
+
+```
